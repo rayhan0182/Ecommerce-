@@ -64,4 +64,14 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.57.1")
     kapt("com.google.dagger:hilt-android-compiler:2.57.1")
 
+    //lottie
+
+    implementation("com.airbnb.android:lottie:6.7.1")
+
+    // ssp and sdp
+
+    implementation("com.intuit.ssp:ssp-android:1.1.1")
+
+    implementation("com.intuit.sdp:sdp-android:1.1.1")
+
 }

@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".view.LandingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        app:lottie_rawRes="@raw/make_payment"
+        app:lottie_autoPlay="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_45sdp"
+        android:scaleType="centerCrop"
+        app:lottie_loop="true"
+        />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/baloo_2_bold"
+        android:textColor="#548521"
+        android:text="Trend Trove"
+        android:textSize="@dimen/_19ssp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/click_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+        app:cornerRadius="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_gravity="center"
+        android:backgroundTint="#6CA032"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/click_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+        app:cornerRadius="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:backgroundTint="#45A0C0"
+        />
+
+
+</LinearLayout>

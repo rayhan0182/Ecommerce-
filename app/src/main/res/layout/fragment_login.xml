@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".view.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        app:lottie_rawRes="@raw/make_payment"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_45sdp"
+        android:scaleType="centerCrop"
+        app:lottie_loop="true"
+        />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/baloo_2_bold"
+        android:textColor="#548521"
+        android:text="Login"
+        android:textSize="@dimen/_19ssp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_marginHorizontal="@dimen/_10ssp"
+        app:boxStrokeColor="#2E552E"
+        app:hintTextColor="#457C11"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#171717"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/_15ssp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:layout_marginHorizontal="@dimen/_10ssp"
+        app:boxStrokeColor="#2E552E"
+        app:hintTextColor="#457C11"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textWebEmailAddress"
+            android:textColor="#171717"
+            android:textSize="@dimen/_15ssp"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/click_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginHorizontal="@dimen/_80sdp"
+        app:cornerRadius="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_gravity="center"
+        android:backgroundTint="#45A0C0"
+        />
+
+</LinearLayout>
