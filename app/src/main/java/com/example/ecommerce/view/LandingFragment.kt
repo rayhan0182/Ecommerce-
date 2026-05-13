@@ -5,19 +5,40 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.ecommerce.R
+import com.example.ecommerce.basefrag.BaseFragment
+import com.example.ecommerce.databinding.FragmentLandingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LandingFragment : Fragment() {
+class LandingFragment : BaseFragment<FragmentLandingBinding>(
+
+    FragmentLandingBinding::inflate
+
+) {
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_landing, container, false)
+    override fun user_create() {
+
+        with(binding){
+
+         clickLogin.setOnClickListener {
+
+             findNavController().navigate(R.id.action_landingFragment_to_loginFragment)
+         }
+
+            clickReg.setOnClickListener {
+
+                findNavController().navigate(R.id.action_landingFragment_to_regFragment)
+            }
+
+        }
+
+    }
+
+    override fun user_respons() {
+
     }
 
 

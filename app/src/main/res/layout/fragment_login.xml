@@ -32,14 +32,14 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="Email"
         android:layout_marginHorizontal="@dimen/_10ssp"
         app:boxStrokeColor="#2E552E"
         app:hintTextColor="#457C11"
         android:layout_marginTop="@dimen/_5sdp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/name"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#171717"
@@ -52,7 +52,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="email"
+        android:hint="@string/password"
         android:layout_marginHorizontal="@dimen/_10ssp"
         app:boxStrokeColor="#2E552E"
         app:hintTextColor="#457C11"
@@ -60,7 +60,7 @@
         app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Email"
+            android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textWebEmailAddress"
@@ -82,5 +82,16 @@
         android:layout_gravity="center"
         android:backgroundTint="#45A0C0"
         />
+
+    <TextView
+        android:id="@+id/No_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="italic"
+        android:textColor="#3B4411"
+        android:text="@string/don_t_have_an_account"
+        android:textSize="@dimen/_13ssp"
+        android:layout_marginTop="@dimen/_25sdp"/>
 
 </LinearLayout>

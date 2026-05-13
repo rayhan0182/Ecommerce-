@@ -21,10 +21,29 @@
         android:id="@+id/loginFragment"
         android:name="com.example.ecommerce.view.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_dashFragment"
+            app:destination="@id/dashFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_regFragment"
+            app:destination="@id/regFragment" />
+    </fragment>
     <fragment
         android:id="@+id/regFragment"
         android:name="com.example.ecommerce.view.RegFragment"
         android:label="fragment_reg"
-        tools:layout="@layout/fragment_reg" />
+        tools:layout="@layout/fragment_reg" >
+        <action
+            android:id="@+id/action_regFragment_to_dashFragment"
+            app:destination="@id/dashFragment" />
+        <action
+            android:id="@+id/action_regFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashFragment"
+        android:name="com.example.ecommerce.DashFragment"
+        android:label="fragment_dash"
+        tools:layout="@layout/fragment_dash" />
 </navigation>
