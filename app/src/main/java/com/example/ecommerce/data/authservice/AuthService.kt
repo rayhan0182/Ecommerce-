@@ -9,4 +9,6 @@ interface AuthService {
     fun authregis(regmodel: Regmodel): Task<AuthResult>
 
     fun authlogin(loginmodel: Loginmodel): Task<AuthResult>
+
+    fun create_user(regmodel: Regmodel): Task<Void>
 }

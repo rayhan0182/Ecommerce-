@@ -36,14 +36,20 @@ class RegFragment : BaseFragment<FragmentRegBinding>(
 
                 if (!name.isemptyy()&&!email.isemptyy()&&!pass.isemptyy()){
 
-                    val userreg = Regmodel(name = name.text.toString(), email = email.text.toString(), pass = pass.text.toString())
+                    val userreg = Regmodel(name = name.text.toString(), email = email.text.toString(),
+
+                        pass = pass.text.toString(), userId = "", usertype = "seller" )
 
                     viewmodel.create_regis(userreg)
-
                 }
 
-
             }
+
+           haveAcc.setOnClickListener {
+
+               findNavController().navigate(R.id.action_regFragment_to_loginFragment)
+
+           }
 
         }
 

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_landingFragment_to_regFragment"
             app:destination="@id/regFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_dashFragment"
+            app:destination="@id/dashFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -45,5 +48,9 @@
         android:id="@+id/dashFragment"
         android:name="com.example.ecommerce.DashFragment"
         android:label="fragment_dash"
-        tools:layout="@layout/fragment_dash" />
+        tools:layout="@layout/fragment_dash" >
+        <action
+            android:id="@+id/action_dashFragment_to_landingFragment"
+            app:destination="@id/landingFragment" />
+    </fragment>
 </navigation>

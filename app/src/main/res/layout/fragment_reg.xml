@@ -14,7 +14,7 @@
         android:layout_height="@dimen/_200sdp"
         app:lottie_rawRes="@raw/make_payment"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_36sdp"
         android:scaleType="centerCrop"
         app:lottie_loop="true"
         />
@@ -103,7 +103,7 @@
         />
 
     <TextView
-        android:id="@+id/No_acc"
+        android:id="@+id/have_acc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

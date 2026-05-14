@@ -25,9 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/baloo_2_bold"
+        android:textStyle="bold"
         android:textColor="#548521"
-        android:text="Trend Trove"
+        android:text="WELCOME TO TREND TROVE"
         android:textSize="@dimen/_19ssp"
         android:layout_marginTop="@dimen/_10sdp"/>
 

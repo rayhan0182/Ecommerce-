@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.ecommerce.R
 import com.example.ecommerce.basefrag.BaseFragment
 import com.example.ecommerce.databinding.FragmentLandingBinding
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +22,8 @@ class LandingFragment : BaseFragment<FragmentLandingBinding>(
 
     override fun user_create() {
 
+        currentuser()
+
         with(binding){
 
          clickLogin.setOnClickListener {
@@ -32,6 +35,16 @@ class LandingFragment : BaseFragment<FragmentLandingBinding>(
 
                 findNavController().navigate(R.id.action_landingFragment_to_regFragment)
             }
+
+        }
+
+    }
+
+    private fun currentuser() {
+
+        FirebaseAuth.getInstance().currentUser?.let {
+
+            findNavController().navigate(R.id.action_landingFragment_to_dashFragment)
 
         }
 

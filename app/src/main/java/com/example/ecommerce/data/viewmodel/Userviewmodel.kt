@@ -14,45 +14,60 @@ class Userviewmodel @Inject constructor(private val authrepo: Authrepo) : ViewMo
 
     private val _regis_success_massage = MutableLiveData<DataState<Regmodel>>()
 
-     val regis_success_massage: LiveData<DataState<Regmodel>> = _regis_success_massage
+    val regis_success_massage: LiveData<DataState<Regmodel>> = _regis_success_massage
 
     private val _login_success_massage = MutableLiveData<DataState<Loginmodel>>()
 
     val login_success_massage: LiveData<DataState<Loginmodel>> = _login_success_massage
 
-    fun create_regis(regmodel: Regmodel){
+    fun create_regis(ureg: Regmodel) {
 
         _regis_success_massage.postValue(DataState.Loading())
 
-        authrepo.authregis(regmodel).addOnSuccessListener {regmodel
+        authrepo.authregis(ureg).addOnSuccessListener {
 
-            _regis_success_massage.postValue(DataState.Success(regmodel))
+            it.user?.let { createduser ->
 
-        }.addOnFailureListener { exception ->
+                ureg.userId = createduser.uid
 
-            _regis_success_massage.postValue(DataState.Error(exception.message.toString()))
+                authrepo.create_user(ureg).addOnSuccessListener {
+                    ureg
+
+                    _regis_success_massage.postValue(DataState.Success(ureg))
+
+                }.addOnFailureListener { exception ->
+
+                    _regis_success_massage.postValue(DataState.Error(exception.message.toString()))
+
+                }
+
+            }
 
         }
 
     }
 
-    fun user_login(loginmodel: Loginmodel){
+        fun user_login(loginmodel: Loginmodel) {
 
-        _login_success_massage.postValue(DataState.Loading())
+            _login_success_massage.postValue(DataState.Loading())
 
-       authrepo.authlogin(loginmodel).addOnSuccessListener { loginmodel
+            authrepo.authlogin(loginmodel).addOnSuccessListener { loginmodel
 
-           _login_success_massage.postValue(DataState.Success(loginmodel))
+                _login_success_massage.postValue(DataState.Success(loginmodel))
 
-       }.addOnFailureListener { exception ->
+            }.addOnFailureListener { exception ->
 
-           _login_success_massage.postValue(DataState.Error("${exception.message}"))
+                _login_success_massage.postValue(DataState.Error("${exception.message}"))
 
-       }
+            }
 
 
+        }
 
     }
 
 
-}
+
+
+
+

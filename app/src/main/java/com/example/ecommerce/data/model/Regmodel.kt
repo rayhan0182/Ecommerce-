@@ -6,5 +6,11 @@ data class Regmodel(
 
     val email: String,
 
-    val pass: String
+    val pass: String,
+
+    var userId: String,
+
+    val usertype: String
+
+
 )

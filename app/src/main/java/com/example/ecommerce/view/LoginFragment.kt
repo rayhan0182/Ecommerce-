@@ -44,6 +44,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
 
             }
 
+            NoAcc.setOnClickListener {
+
+                findNavController().navigate(R.id.action_loginFragment_to_regFragment)
+
+            }
+
 
         }
 
