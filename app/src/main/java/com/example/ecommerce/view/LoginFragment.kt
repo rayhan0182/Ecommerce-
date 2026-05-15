@@ -1,5 +1,7 @@
 package com.example.ecommerce.view
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.ecommerce.Dashboard.Seller_Dashboard
 import com.example.ecommerce.DataState
 import com.example.ecommerce.R
 import com.example.ecommerce.basefrag.BaseFragment
@@ -81,7 +84,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(
 
                     Toast.makeText(requireContext(), "successfull Login", Toast.LENGTH_LONG).show()
 
-                    findNavController().navigate(R.id.action_loginFragment_to_dashFragment)
+                    startActivity(Intent(requireContext(), Seller_Dashboard::class.java))
+
+                    requireActivity().finish()
+                    
 
                 }
             }

@@ -4,4 +4,12 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+    <style name="Theme.Ecommerce.appbar" parent="Theme.Material3.DayNight">
+
+        <item name="android:background">#3D5D88</item>
+
+
+    </style>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.example.ecommerce.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.ecommerce.Dashboard.Seller_Dashboard
 import com.example.ecommerce.DataState
 import com.example.ecommerce.R
 import com.example.ecommerce.basefrag.BaseFragment
@@ -80,7 +82,9 @@ class RegFragment : BaseFragment<FragmentRegBinding>(
 
                     Toast.makeText(requireContext(),"successfull add", Toast.LENGTH_LONG).show()
 
-                    findNavController().navigate(R.id.action_regFragment_to_dashFragment)
+                    startActivity(Intent(requireContext(), Seller_Dashboard::class.java))
+
+                    requireActivity().finish()
 
                 }
             }
