@@ -7,7 +7,9 @@
         android:title="To Menu"
         android:icon="@drawable/ic_menu"
         app:showAsAction="always"
-        tools:ignore="HardcodedText">
+        tools:ignore="HardcodedText"
+        >
+
 
         <menu>
 

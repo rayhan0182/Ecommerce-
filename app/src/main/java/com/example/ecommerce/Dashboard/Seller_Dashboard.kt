@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.ecommerce.R
+import com.example.ecommerce.activity.MainActivity
 import com.example.ecommerce.databinding.ActivitySellerDashboardBinding
 import com.example.ecommerce.view.LandingFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -72,7 +73,9 @@ class Seller_Dashboard : AppCompatActivity() {
 
                 auth.signOut()
 
-                startActivity(Intent(this@Seller_Dashboard, LandingFragment::class.java))
+                startActivity(Intent(this@Seller_Dashboard, MainActivity::class.java))
+
+
 
             }
 
@@ -83,11 +86,7 @@ class Seller_Dashboard : AppCompatActivity() {
             }
 
         }
-
-
-
-
-
+        
         return super.onOptionsItemSelected(item)
     }
 

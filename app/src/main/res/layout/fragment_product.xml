@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#789654"
+    android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".ProductFragment">
+    tools:context=".Dashboard.seller.product.ProductFragment">
 
 
 

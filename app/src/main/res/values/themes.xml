@@ -9,11 +9,12 @@
 
     <style name="Theme.Ecommerce.appbar" parent="Theme.Material3.DayNight">
 
-        <item name="android:background">#3D5D88</item>
+        <item name="colorPrimary">#258963</item>
+
+        <item name="android:statusBarColor">#258963</item>
 
 
     </style>
-
 
 
 
