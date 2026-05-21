@@ -83,4 +83,16 @@ dependencies {
 
     implementation("com.intuit.sdp:sdp-android:1.1.1")
 
+    // imagepicker
+
+    implementation(libs.imagepicker)
+
+    implementation(libs.fragment)
+
+    implementation(libs.activity.ktx)
+
+
+
+
+
 }

@@ -21,7 +21,9 @@ firebaseAuth = "24.1.0"
 credentials = "1.6.0"
 credentialsPlayServicesAuth = "1.6.0"
 googleid = "1.2.0"
-
+imagepickerversion = "2.1"
+atvityktx = "1.2.3"
+fragmentimagespicker = "1.3.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,7 +44,9 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credentialsPlayServicesAuth" }
 googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "googleid" }
-
+imagepicker = { group = "com.github.dhaval2404", name = "imagepicker", version.ref = "imagepickerversion" }
+activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "atvityktx"}
+fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragmentimagespicker" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }

@@ -5,14 +5,15 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import com.example.ecommerce.Dashboard.seller.Model.Pmodel
-import com.example.ecommerce.R
 import com.example.ecommerce.basefrag.BaseFragment
 import com.example.ecommerce.core.extrasyntex
 import com.example.ecommerce.core.requestpermissions
-import com.example.ecommerce.databinding.FragmentProductBinding
 import com.example.ecommerce.databinding.FragmentUploadBinding
 import dagger.hilt.android.AndroidEntryPoint
 import android.Manifest
+import android.app.Activity
+import androidx.activity.result.ActivityResult
+import com.github.dhaval2404.imagepicker.ImagePicker
 
 @AndroidEntryPoint
 class UploadFragment : BaseFragment<FragmentUploadBinding>(
@@ -26,9 +27,15 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
         activityResultLauncher  = getrequestpermissions()
 
-        requestpermissions(activityResultLauncher,requestlist)
+
 
         binding.apply {
+
+            image.setOnClickListener {
+
+                requestpermissions(activityResultLauncher,requestlist)
+
+            }
 
             clickBtn.setOnClickListener {
 
@@ -60,7 +67,12 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
             if (allGranted){
 
-                Toast.makeText(requireContext(),"Granted", Toast.LENGTH_LONG).show()
+                ImagePicker.with(this)
+                    .compress(1024)
+                    .maxResultSize(512, 512)
+                    .createIntent { intent ->
+                        startForProfileImageResult.launch(intent)
+                    }
 
             }else{
 
@@ -76,6 +88,24 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
 
     }
+
+    private val startForProfileImageResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            val resultCode = result.resultCode
+            val data = result.data
+
+            if (resultCode == Activity.RESULT_OK) {
+                //Image Uri will not be null for RESULT_OK
+                val fileUri = data?.data!!
+
+                binding.image.setImageURI(fileUri)
+
+            } else if (resultCode == ImagePicker.RESULT_ERROR) {
+                Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     companion object{
 
