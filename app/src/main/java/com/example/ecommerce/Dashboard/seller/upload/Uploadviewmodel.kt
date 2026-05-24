@@ -36,7 +36,19 @@ constructor(
 
           snapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { uri ->
 
-              _imageupload.postValue(DataState.Success("create:$uri"))
+              pmodel.imagelink = uri.toString()
+
+              sellerRepo.productupload(pmodel).addOnSuccessListener {
+
+                  _imageupload.postValue(DataState.Success("task done"))
+
+              }.addOnFailureListener { error->
+
+                  _imageupload.postValue(DataState.Error(error.message.toString()))
+
+
+
+              }
           }
 
         }.addOnFailureListener { error->

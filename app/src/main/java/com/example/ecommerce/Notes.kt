@@ -6,4 +6,6 @@ object Notes {
 
     const val storagepath = "User_Product"
 
+    const val PRODUCT = "products"
+
 }

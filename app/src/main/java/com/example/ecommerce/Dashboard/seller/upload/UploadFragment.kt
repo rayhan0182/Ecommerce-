@@ -16,6 +16,8 @@ import androidx.activity.result.ActivityResult
 import com.github.dhaval2404.imagepicker.ImagePicker
 import androidx.fragment.app.viewModels
 import com.example.ecommerce.DataState
+import com.google.firebase.auth.FirebaseAuth
+import java.util.UUID
 
 @AndroidEntryPoint
 class UploadFragment : BaseFragment<FragmentUploadBinding>(
@@ -53,15 +55,26 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
                 val user_des = this.des.extrasyntex()
 
-                pmodel.apply {
+                FirebaseAuth.getInstance().currentUser?.let {
 
-                    this.product_name = product
+                    pmodel.apply {
 
-                    this.Product_price = price.toDouble()
+                        this.productId = UUID.randomUUID().toString()
 
-                    this.des = user_des
+                        this.sellerId = it.uid
+
+                        this.product_name = product
+
+                        this.Product_price = price.toDouble()
+
+                        this.des = user_des
+
+                    }
+
 
                 }
+
+
 
                 productupload(pmodel)
 
