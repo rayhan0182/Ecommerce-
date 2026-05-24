@@ -1,5 +1,4 @@
 package com.example.ecommerce.Dashboard
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +21,7 @@ import com.example.ecommerce.view.LandingFragment
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
+import androidx.fragment.app.DialogFragment
 @AndroidEntryPoint
 class Seller_Dashboard : AppCompatActivity() {
     lateinit var binding: ActivitySellerDashboardBinding

@@ -3,6 +3,8 @@ import com.example.ecommerce.data.model.Loginmodel
 import com.example.ecommerce.data.model.Regmodel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
+import dagger.hilt.android.AndroidEntryPoint
+
 
 interface AuthService {
 

@@ -14,6 +14,8 @@ import android.Manifest
 import android.app.Activity
 import androidx.activity.result.ActivityResult
 import com.github.dhaval2404.imagepicker.ImagePicker
+import androidx.fragment.app.viewModels
+import com.example.ecommerce.DataState
 
 @AndroidEntryPoint
 class UploadFragment : BaseFragment<FragmentUploadBinding>(
@@ -22,12 +24,18 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
 ) {
 
+    private val viewmodel: Uploadviewmodel by viewModels()
+
+   private  val pmodel: Pmodel by lazy() {
+
+       Pmodel()
+
+   }
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun user_create() {
 
         activityResultLauncher  = getrequestpermissions()
-
-
 
         binding.apply {
 
@@ -39,24 +47,36 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
             clickBtn.setOnClickListener {
 
-                val product_name = this.pname.extrasyntex()
+                val product = this.pname.extrasyntex()
 
-                val product_price = this.price.extrasyntex()
+                val price = this.price.extrasyntex()
 
-                val des = this.des.extrasyntex()
+                val user_des = this.des.extrasyntex()
 
-                val userdata = Pmodel(
-                    product_name = product_name, imagelink = "",
+                pmodel.apply {
 
-                    price = product_price.toDoubleOrNull(), des = des, sellerId = "", productId = ""
+                    this.product_name = product
 
-                )
+                    this.Product_price = price.toDouble()
+
+                    this.des = user_des
+
+                }
+
+                productupload(pmodel)
 
             }
 
         }
 
     }
+
+    private fun productupload(model: Pmodel) {
+
+        viewmodel.productupload(model)
+
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun getrequestpermissions(): ActivityResultLauncher<Array<String>> {
@@ -86,6 +106,35 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
 
     override fun user_respons() {
 
+        viewmodel.imageupload.observe(viewLifecycleOwner){
+
+            when(it){
+                is DataState.Error->{
+
+                    loading.dismiss()
+
+                    Toast.makeText(requireContext(),"$it", Toast.LENGTH_LONG).show()
+
+                }
+                is DataState.Loading ->{
+
+                    loading.show()
+
+                    Toast.makeText(requireContext(),"Loading...", Toast.LENGTH_SHORT).show()
+
+                }
+                is DataState.Success -> {
+
+                    loading.dismiss()
+
+                    Toast.makeText(requireContext(),"upload your task", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
+
+        }
+
 
     }
 
@@ -97,8 +146,9 @@ class UploadFragment : BaseFragment<FragmentUploadBinding>(
             if (resultCode == Activity.RESULT_OK) {
                 //Image Uri will not be null for RESULT_OK
                 val fileUri = data?.data!!
-
                 binding.image.setImageURI(fileUri)
+
+                pmodel.imagelink = fileUri.toString()
 
             } else if (resultCode == ImagePicker.RESULT_ERROR) {
                 Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT).show()

@@ -9,6 +9,7 @@ import com.example.ecommerce.R
 import com.example.ecommerce.basefrag.BaseFragment
 import com.example.ecommerce.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.fragment.app.DialogFragment
 
 @AndroidEntryPoint
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(

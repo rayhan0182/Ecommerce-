@@ -8,6 +8,7 @@ import com.example.ecommerce.data.model.Regmodel
 import com.example.ecommerce.data.repo.Authrepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
+import androidx.fragment.app.DialogFragment
 
 @HiltViewModel
 class Userviewmodel @Inject constructor(private val authrepo: Authrepo) : ViewModel() {

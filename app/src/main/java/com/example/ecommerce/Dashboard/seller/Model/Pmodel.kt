@@ -6,7 +6,7 @@ data class Pmodel(
 
     var imagelink: String = "",
 
-    var price: Double? = 0.0,
+    var Product_price: Double? = 0.0,
 
     var des: String = "",
 
